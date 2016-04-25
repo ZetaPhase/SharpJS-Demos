@@ -5,44 +5,19 @@ using SharpJS.Dom.Styles;
 
 namespace RichTextBox
 {
-    /// <summary>
-	/// Main WebForm
-	/// </summary>
-	public class MainForm : WebForm
+    //tutorial on rich text boxes
+    public class MainForm : WebForm
     {
+        private TextArea richTextBox; //declaration
         public MainForm()
         {
-            Controls = new Layout()
+            richTextBox = new TextArea
             {
-                new TextBlock()
-                {
-                    Text = "ExaPhaser.WebForms Demo",
-                    TextAlign = TextAlign.Center,
-                    FontStyle = new FontStyle()
-                    {
-                        FontSize = 24,
-                        FontWeight = FontWeight.Bold,
-                    }
-                },
-                new TextBlock()
-                {
-                    Text = "A random TextBox is below",
-                },
-                new TextBox()
-                {
-                    Text = "Some text",
-                },
-                new Button()
-                {
-                    Text = "OK",
-                    CommandParameter = null,
-                    Command = new DelegateCommand(()=>JSLibrary.Alert("You clicked the button")),
-                },
-                new TextArea()
-                {
-                    Text = "Cool! TextArea is now supported!",
-                    Rows = 20,
-                },
+                Text = "This is a very cool rich text box."
+            };
+            Controls = new Layout() //this is where you actually put the elements onto the webpage
+            {
+                richTextBox,
             };
         }
     }
