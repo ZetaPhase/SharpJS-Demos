@@ -2,47 +2,24 @@
 using ExaPhaser.WebForms.Controls;
 using SharpJS.Dom;
 using SharpJS.Dom.Styles;
+using System;
+using SharpJS.System.IO.WebStorage;
 
 namespace Labels
 {
-    /// <summary>
-	/// Main WebForm
-	/// </summary>
-	public class MainForm : WebForm
+    //tutorial on labels
+    public class MainForm : WebForm
     {
+        private TextBox label; //declaration
         public MainForm()
         {
-            Controls = new Layout()
+            label = new TextBox //making our new label
             {
-                new TextBlock()
-                {
-                    Text = "ExaPhaser.WebForms Demo",
-                    TextAlign = TextAlign.Center,
-                    FontStyle = new FontStyle()
-                    {
-                        FontSize = 24,
-                        FontWeight = FontWeight.Bold,
-                    }
-                },
-                new TextBlock()
-                {
-                    Text = "A random TextBox is below",
-                },
-                new TextBox()
-                {
-                    Text = "Some text",
-                },
-                new Button()
-                {
-                    Text = "OK",
-                    CommandParameter = null,
-                    Command = new DelegateCommand(()=>JSLibrary.Alert("You clicked the button")),
-                },
-                new TextArea()
-                {
-                    Text = "Cool! TextArea is now supported!",
-                    Rows = 20,
-                },
+                Text = "Hey this is an awesome label.",
+            };
+            Controls = new Layout() //this is where you actually put the elements onto the webpage
+            {
+                label,
             };
         }
     }
